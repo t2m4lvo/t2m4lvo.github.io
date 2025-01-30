@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="How to Move Your Dragon: Text-to-Motion Synthesis For Large Vocabulary Objects">
+  <meta name="keywords" content="T2Mlvo">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>How to Move Your Dragon: Text-to-Motion Synthesis For Large Vocabulary Objects</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+  <meta charset="UTF-8" />
+  <title>Tab Highlight Example</title>
+  <style>
+    .tabs ul li.is-active a {
+      background-color: #eee;
+      color: #333;
+      font-weight: bold;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">How to Move Your Dragon: Text-to-Motion Synthesis For Large Vocabulary Objects</h1>
+          <div class="is-size-3 publication-authors">
+            <span class="author-block">Anonymous Authors</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <video width="100%" height="100%" autoplay controls muted loop playsinline style="max-height: 100%;">
+        <source src="./static/videos/0_teaser/MotionClip_All_characters4_[2-182].mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <div style="margin: 1rem 0;"></div>
+      <h2 class="subtitle has-text-centered">
+        <span class="dnerf">T2M4LVO</span> generates various motions of large vocab objects from text descriptions.
+      </h2>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="column has-text-centered">
+      <div class="tabs is-centered">
+        <ul>
+          <li class="is-active">
+            <a href="#" onclick="changeVideo('./static/videos/1_dragon/Level of Detail Category_Big_Side.mp4', event); return false;">
+              Big Animals
+            </a>
+          </li>
+          <li>
+            <a href="#" onclick="changeVideo('./static/videos/1_dragon/Level of Detail Category_Dinos_Side.mp4', event); return false;">
+              Dinosours
+            </a>
+          </li>
+          <li>
+            <a href="#" onclick="changeVideo('./static/videos/1_dragon/Level of Detail Category_Insects_Side.mp4', event); return false;">
+              Insects
+            </a>
+          </li>
+          <li>
+            <a href="#" onclick="changeVideo('./static/videos/1_dragon/Level of Detail Category_Midium_Side.mp4', event); return false;">
+              Medium Size Animals
+            </a>
+          </li>
+          <li>
+            <a href="#" onclick="changeVideo('./static/videos/1_dragon/Level of Detail Category_SeaWater_Side.mp4', event); return false;">
+              Sea Water Animals
+            </a>
+          </li>
+          <li>
+            <a href="#" onclick="changeVideo('./static/videos/1_dragon/Level of Detail Category_Small_Side.mp4', event); return false;">
+              Small Size Animals
+            </a>
+          </li>
+          <li>
+            <a href="#" onclick="changeVideo('./static/videos/1_dragon/Level of Detail Category_Winged_Side.mp4', event); return false;">
+              Winged Animals
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="hero-body" id="videoWrapper">
+        <video id="categoryVideo" width="80%" height="80%" autoplay controls muted loop playsinline style="max-height: 100%;">
+          <source id="categoryVideoSource" 
+                  src="./static/videos/1_dragon/Level of Detail Category_Big_Side.mp4" 
+                  type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+function changeVideo(videoSrc, event) {
+  event.preventDefault();
+  
+  // 모든 li에서 is-active 제거
+  document.querySelectorAll('.tabs ul li').forEach(li => {
+    li.classList.remove('is-active');
+  });
+
+  // 클릭된 li에 is-active 추가 (하이라이트)
+  const clickedLi = event.target.closest('li');
+  clickedLi.classList.add('is-active');
+
+  const video = document.getElementById("categoryVideo");
+  const source = document.getElementById("categoryVideoSource");
+  source.src = videoSrc;
+  video.load();
+  video.play();
+}
+</script>
+
+<section class="hero is-light">
+  <div style="margin: 1rem 0;"></div>
+  <div class="container is-max-desktop">
+    <div class="columns is-vcentered">
+      <div class="column is-one-third">
+        <div class="item item-steve" style="box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); padding: 1rem; background-color: white; border-radius: 8px;">
+          <video poster="" id="steve" autoplay controls muted loop playsinline style="border-radius: 8px;">
+            <source src="./static/videos/1_dragon/Bat_Bat-FlyLoop_rest_[2-91].mp4" type="video/mp4">
+          </video>
+          <p class="description">(a) A dragon flying in a continuous loop.</p>
+        </div>
+      </div>
+
+      <div class="column is-one-third">
+        <div class="item item-chair-tp" style="box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); padding: 1rem; background-color: white; border-radius: 8px;">
+          <video poster="" id="chair-tp" autoplay controls muted loop playsinline style="border-radius: 8px;">
+            <source src="./static/videos/1_dragon/Bat_Bat-Kick_rest_[2-91].mp4" type="video/mp4">
+          </video>
+          <p class="description">(b) A dragon performing a kicking motion.</p>
+        </div>
+      </div>
+
+      <div class="column is-one-third">
+        <div class="item item-shiba" style="box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); padding: 1rem; background-color: white; border-radius: 8px;">
+          <video poster="" id="shiba" autoplay controls muted loop playsinline style="border-radius: 8px;">
+            <source src="./static/videos/1_dragon/Bat_Bat-SlowFly_rest_[2-91].mp4" type="video/mp4">
+          </video>
+          <p class="description">(c) A dragon flying slowly and gracefully.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin: 1rem 0;"></div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Motion synthesis for diverse object categories holds great potential for 3D content creation but remains underexplored due to two key challenges:
+            (1) the lack of comprehensive motion datasets that include a wide range of high-quality motions and annotations, and 
+            (2) the absence of methods capable of handling heterogeneous skeletal topologies.
+          </p>
+          <p>
+            To address these challenges, we contribute the following: First, we augment the Truebones Zoo dataset—a high-quality animal motion dataset covering over 70 species—by annotating it with
+            detailed text descriptions, making it suitable for text-based motion synthesis. Second, we introduce rig augmentation techniques that generate diverse motion data while preserving consistent
+            dynamics, enabling models to adapt to various skeletal configurations. Finally, we redesign existing motion diffusion models to support arbitrary skeletal templates, facilitating motion synthesis
+            across heterogeneous skeletal structures.
+          </p>
+          <p>
+            Experiments show that our approach generates realistic, coherent, diverse, and even novel motions based on textual descriptions, setting a new benchmark for motion generation across diverse object categories.
+            Qualitative results are available on this <a href="https://t2mlvo.github.io/" target="_blank">Link</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div style="margin: 2rem 0;"></div>
+  <div class="container is-max-desktop">
+    
+    <!-- 상단 중앙 제목 -->
+    <div class="columns is-centered has-text-centered">
+      <h2 class="title is-3">Adaptability to Novel Motion Descriptions</h2>
+    </div>
+    <div class="content has-text-justified">
+      <p>
+        We compare the synthesized motions of different models for a dragon using the
+        novel motion description from the ant: “An object is knocked back and ends up lying on its back, motionless.”
+        Among them, only our method successfully generates a dragon motion that closely aligns with the reference motion from the ant.
+      </p>
+    </div>
+
+    <div style="margin: 2rem 0;"></div>
+
+    <div class="columns is-vcentered">
+      <div class="column has-text-centered" style="border-right: 2px dashed #ccc;">
+        <p class="title is-5">Reference</p>
+        <video width="300"  autoplay controls muted loop playsinline>
+          <source src="static/videos/3_novel_description/Synthesized_Ant_Original.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+
+      <div class="column has-text-centered">
+        <p class="title is-5">Ours</p>
+        <video width="300"  autoplay controls muted loop playsinline>
+          <source src="static/videos/3_novel_description/ours.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+
+      <div class="column has-text-centered">
+        <p class="title is-5">w/ GPT-Caption</p>
+        <video width="300"  autoplay controls muted loop playsinline>
+          <source src="static/videos/3_novel_description/baseline_1_GPT.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+
+      <div class="column has-text-centered">
+        <p class="title is-5">w/o Rig Aug.</p>
+        <video width="300"  autoplay controls muted loop playsinline>
+          <source src="static/videos/3_novel_description/baseline_2_wo_RigAug.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+
+      <div class="column has-text-centered">
+        <p class="title is-5">SO-MDMs</p>
+        <video width="300" autoplay controls muted loop playsinline>
+          <source src="static/videos/3_novel_description/baseline_3_so-mdms.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div style="margin: 2rem 0;"></div>
+  <div class="container is-max-desktop">
+    <!-- 상단 중앙 제목 -->
+    <div class="columns is-centered has-text-centered">
+      <h2 class="title is-3">Motion Synthesis on Known/Novel Objects</h2>
+    </div>
+
+    <!-- 1개의 row 내부에서, 왼쪽 컬럼=원본 객체, 오른쪽 컬럼=Novel 객체 -->
+    <div class="columns is-centered" style="align-items: flex-start; margin-top: 2rem;">
+
+      <!-- [왼쪽 컬럼] : Ant / Gazelle 중 하나를 선택할 수 있는 버튼 + 해당 영상 -->
+      <div class="column has-text-centered is-flex is-flex-direction-column is-align-items-center">
+        <h3 class="title is-5">Original Object's Motion</h3>
+
+        <!-- 원본 객체 영상 컨테이너 (Ant / Gazelle 각각을 숨기고/보이게) -->
+        <div class="video-display" style="
+          width: 320px; 
+          height: 240px;
+          position: relative; 
+          border: 1px solid #ddd;
+          border-radius: 4px;
+          background-color: #000;
+          overflow: hidden;
+          margin: 0 auto;">
+          
+          <!-- Ant 원본 -->
+          <div id="original-ant" style="
+            display: none; 
+            position: absolute; 
+            top: 0; left: 0; 
+            width: 100%; height: 100%;">
+            <video 
+              width="100%" 
+              height="100%" 
+              autoplay 
+              controls 
+              muted 
+              loop 
+              playsinline
+              style="max-height: 100%;">
+              <source src="./static/videos/2_novel/Synthesized_Ant_Original.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+
+          <!-- Gazelle 원본 -->
+          <div id="original-gazelle" style="
+            display: none; 
+            position: absolute; 
+            top: 0; left: 0; 
+            width: 100%; height: 100%;">
+            <video 
+              width="100%" 
+              height="100%" 
+              autoplay 
+              controls 
+              muted 
+              loop 
+              playsinline
+              style="max-height: 100%;">
+              <source src="./static/videos/2_novel/Synthesized2_Gazelle_Original.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+        
+        <!-- 원본 객체 설명 -->
+        <p id="original-description" class="mt-2"></p>
+
+        <!-- Ant / Gazelle 토글 버튼 -->
+        <div style="margin: 1rem 0;"></div>
+        <div class="buttons is-centered" style="margin-bottom: 1rem;">
+          <button id="btn-ant" class="button is-small is-rounded" onclick="toggleOriginal('ant')">Ant</button>
+          <button id="btn-gazelle" class="button is-small is-rounded" onclick="toggleOriginal('gazelle')">Gazelle</button>
+        </div>
+      </div>
+
+      <!-- [오른쪽 컬럼] : Known(4개) / Novel(4개) Objects 선택 버튼 + 해당 영상 -->
+      <div class="column has-text-centered is-flex is-flex-direction-column is-align-items-center">
+
+        <h3 class="title is-5">Known/Novel Objects' Motion</h3>
+
+        <!-- Novel Objects 영상 컨테이너(시나리오마다 별도 DOM) -->
+        <div class="video-display" style="
+          width: 320px; 
+          height: 240px;
+          position: relative;
+          border: 1px solid #ddd;
+          border-radius: 4px;
+          background-color: #000;
+          overflow: hidden;
+          margin: 0 auto;">
+          
+          <!-- [ANT 시나리오] Known/Novel Objects 영상들 -->
+          <div id="ant-novel-videos" style="display: none; width:100%; height:100%; position:absolute; top:0; left:0;">
+            <!-- Cat -->
+            <div id="ant-object5" class="video-container" style="
+              display: none; 
+              position: absolute; 
+              top: 0; left: 0; 
+              width: 100%; height: 100%;">
+              <video width="100%" height="100%" autoplay controls muted loop playsinline style="max-height: 100%;">
+                <source src="./static/videos/2_novel/SynthAll3_250130-154223_Cat_00.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <!-- Dragon -->
+            <div id="ant-object7" class="video-container" style="
+              display: none; 
+              position: absolute; 
+              top: 0; left: 0; 
+              width: 100%; height: 100%;">
+              <video width="100%" height="100%" autoplay controls muted loop playsinline style="max-height: 100%;">
+                <source src="./static/videos/2_novel/SynthAll3_250130-154223_Dragon_00.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <!-- Tyranno -->
+            <div id="ant-object8" class="video-container" style="
+              display: none; 
+              position: absolute; 
+              top: 0; left: 0; 
+              width: 100%; height: 100%;">
+              <video width="100%" height="100%" autoplay controls muted loop playsinline style="max-height: 100%;">
+                <source src="./static/videos/2_novel/SynthAll3_250130-154223_Tyranno_00.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <!-- Cricket -->
+            <div id="ant-object6" class="video-container" style="
+              display: none; 
+              position: absolute; 
+              top: 0; left: 0; 
+              width: 100%; height: 100%;">
+              <video width="100%" height="100%" autoplay controls muted loop playsinline style="max-height: 100%;">
+                <source src="./static/videos/2_novel/SynthAll3_250130-154223_Cricket_00.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+
+            <!-- Alamosaurus -->
+            <div id="ant-object1" class="video-container" style="
+              display: none; 
+              position: absolute; 
+              top: 0; left: 0; 
+              width: 100%; height: 100%;">
+              <video width="100%" height="100%" autoplay controls muted loop playsinline style="max-height: 100%;">
+                <source src="./static/videos/2_novel/SynthAll2_250127-162627_alamosaurus_00.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <!-- Icy Dragon -->
+            <div id="ant-object2" class="video-container" style="
+              display: none; 
+              position: absolute; 
+              top: 0; left: 0; 
+              width: 100%; height: 100%;">
+              <video width="100%" height="100%" autoplay controls muted loop playsinline style="max-height: 100%;">
+                <source src="./static/videos/2_novel/SynthAll2_250127-162627_icy-dragon_00.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <!-- Pegasus -->
+            <div id="ant-object3" class="video-container" style="
+              display: none; 
+              position: absolute; 
+              top: 0; left: 0; 
+              width: 100%; height: 100%;">
+              <video width="100%" height="100%" autoplay controls muted loop playsinline style="max-height: 100%;">
+                <source src="./static/videos/2_novel/SynthAll2_250127-162627_pegasus_00.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <!-- Pig -->
+            <div id="ant-object4" class="video-container" style="
+              display: none; 
+              position: absolute; 
+              top: 0; left: 0; 
+              width: 100%; height: 100%;">
+              <video width="100%" height="100%" autoplay controls muted loop playsinline style="max-height: 100%;">
+                <source src="./static/videos/2_novel/SynthAll2_250127-162627_Pig_00.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div> <!-- end #ant-novel-videos -->
+
+          <!-- [GAZELLE 시나리오] Known/Novel Objects 영상들 -->
+          <div id="gazelle-novel-videos" style="display: none; width:100%; height:100%; position:absolute; top:0; left:0;">
+            <!-- Cat -->
+            <div id="gazelle-object5" class="video-container" style="
+              display: none;
+              position: absolute; 
+              top: 0; left: 0; 
+              width: 100%; height: 100%;">
+              <video width="100%" height="100%" autoplay controls muted loop playsinline style="max-height: 100%;">
+                <source src="./static/videos/2_novel/Synthesized2_Cat.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <!-- Dragon -->
+            <div id="gazelle-object7" class="video-container" style="
+              display: none;
+              position: absolute; 
+              top: 0; left: 0; 
+              width: 100%; height: 100%;">
+              <video width="100%" height="100%" autoplay controls muted loop playsinline style="max-height: 100%;">
+                <source src="./static/videos/2_novel/Synthesized2_Dragon.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <!-- Tyranno -->
+            <div id="gazelle-object8" class="video-container" style="
+              display: none;
+              position: absolute; 
+              top: 0; left: 0; 
+              width: 100%; height: 100%;">
+              <video width="100%" height="100%" autoplay controls muted loop playsinline style="max-height: 100%;">
+                <source src="./static/videos/2_novel/Synthesized2_Tyranno.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <!-- Cricket -->
+            <div id="gazelle-object6" class="video-container" style="
+              display: none;
+              position: absolute; 
+              top: 0; left: 0; 
+              width: 100%; height: 100%;">
+              <video width="100%" height="100%" autoplay controls muted loop playsinline style="max-height: 100%;">
+                <source src="./static/videos/2_novel/Synthesized2_Cricket.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+
+            <!-- Alamosaurus -->
+            <div id="gazelle-object1" class="video-container" style="
+              display: none;
+              position: absolute; 
+              top: 0; left: 0; 
+              width: 100%; height: 100%;">
+              <video width="100%" height="100%" autoplay controls muted loop playsinline style="max-height: 100%;">
+                <source src="./static/videos/2_novel/Synthesized2_alamosaurus.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <!-- Icy Dragon -->
+            <div id="gazelle-object2" class="video-container" style="
+              display: none;
+              position: absolute; 
+              top: 0; left: 0; 
+              width: 100%; height: 100%;">
+              <video width="100%" height="100%" autoplay controls muted loop playsinline style="max-height: 100%;">
+                <source src="./static/videos/2_novel/Synthesized2_icy_dragon.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <!-- Pegasus -->
+            <div id="gazelle-object3" class="video-container" style="
+              display: none;
+              position: absolute; 
+              top: 0; left: 0; 
+              width: 100%; height: 100%;">
+              <video width="100%" height="100%" autoplay controls muted loop playsinline style="max-height: 100%;">
+                <source src="./static/videos/2_novel/Synthesized2_pegasus.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <!-- Pig -->
+            <div id="gazelle-object4" class="video-container" style="
+              display: none;
+              position: absolute; 
+              top: 0; left: 0; 
+              width: 100%; height: 100%;">
+              <video width="100%" height="100%" autoplay controls muted loop playsinline style="max-height: 100%;">
+                <source src="./static/videos/2_novel/Synthesized2_Pig.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div> <!-- end #gazelle-novel-videos -->
+
+        </div> <!-- end .video-display -->
+
+        <!-- Known/Novel Objects 설명 -->
+        <p id="novel-description" class="mt-2"></p>
+
+        <!-- **Known Objects**(위 줄) + **Novel Objects**(아래 줄) 버튼들 -->
+        
+        <!-- [Row 1] Known Objects -->
+        <div style="margin: 1rem 0;"></div>
+        <p class="subtitle is-6 has-text-weight-semibold">Known:</p>
+        <div class="buttons is-centered">
+          <button id="btn-object5" class="button is-small is-rounded" onclick="toggleNovelObject('object5')">Cat</button>
+          <button id="btn-object7" class="button is-small is-rounded" onclick="toggleNovelObject('object7')">Dragon</button>
+          <button id="btn-object8" class="button is-small is-rounded" onclick="toggleNovelObject('object8')">Tyranno</button>
+          <button id="btn-object6" class="button is-small is-rounded" onclick="toggleNovelObject('object6')">Cricket</button>
+        </div>
+
+        <!-- [Row 2] Novel Objects -->
+        <p class="subtitle is-6 has-text-weight-semibold">Novel:</p>
+        <div class="buttons is-centered">
+          <button id="btn-object1" class="button is-small is-rounded" onclick="toggleNovelObject('object1')">Alamosaurus</button>
+          <button id="btn-object2" class="button is-small is-rounded" onclick="toggleNovelObject('object2')">Icy Dragon</button>
+          <button id="btn-object3" class="button is-small is-rounded" onclick="toggleNovelObject('object3')">Pegasus</button>
+          <button id="btn-object4" class="button is-small is-rounded" onclick="toggleNovelObject('object4')">Pig</button>
+        </div>
+
+      </div> <!-- end column (오른쪽) -->
+
+    </div> <!-- end columns (row) -->
+  </div> <!-- end container -->
+</section>
+
+<script>
+  // 현재 선택된 시나리오(ant or gazelle) & 현재 선택된 Novel Object 버튼
+  let currentScenario = 'ant';
+  let activeOriginalButtonId = null;
+  let activeNovelButtonId = null;
+
+  // 각 시나리오별 문구를 저장한 객체
+  const scenarioInfo = {
+    ant: {
+      originalDescription: "Ant is knocked back and ends up lying on its back, motionless",
+      novelDescription: "[Animal] is knocked back and ends up lying on its back, motionless"
+    },
+    gazelle: {
+      originalDescription: "A gazelle is shot and falls to the ground",
+      novelDescription: "[Animal] is shot and falls to the ground"
+    }
+  };
+
+  // Known/Novel Objects별 이름 정보
+  // (object5=Cat, object7=Dragon, object8=Tyranno, object6=Cricket, etc.)
+  const objectInfo = {
+    // Known
+    object5: { name: "Cat" },
+    object7: { name: "Dragon" },
+    object8: { name: "Tyranno" },
+    object6: { name: "Cricket" },
+
+    // Novel
+    object1: { name: "Alamosaurus" },
+    object2: { name: "Icy Dragon" },
+    object3: { name: "Pegasus" },
+    object4: { name: "Pig" }
+  };
+
+  // [왼쪽] Original 객체(ant/gazelle) 토글
+  function toggleOriginal(scenario) {
+    // 먼저 기존 원본 영상 모두 숨기기
+    document.getElementById('original-ant').style.display = 'none';
+    document.getElementById('original-gazelle').style.display = 'none';
+
+    // 시나리오에 맞춰 보여주기
+    document.getElementById('original-' + scenario).style.display = 'block';
+
+    // 시나리오 정보 업데이트
+    document.getElementById('original-description').textContent = scenarioInfo[scenario].originalDescription;
+
+    // Novel 쪽도 시나리오 변경 (ant-novel-videos / gazelle-novel-videos)
+    document.getElementById('ant-novel-videos').style.display = 'none';
+    document.getElementById('gazelle-novel-videos').style.display = 'none';
+    document.getElementById(scenario + '-novel-videos').style.display = 'block';
+
+    // 현재 시나리오 변경
+    currentScenario = scenario;
+
+    // 하이라이트(색상) 변경
+    highlightOriginalButton('btn-' + scenario);
+
+    // 시나리오 바뀌면, 기본 1번(Alamosaurus)부터 다시 보여주도록 설정
+    toggleNovelObject('object1');
+  }
+
+  // [오른쪽] Known/Novel Objects 토글
+  function toggleNovelObject(objectId) {
+    // 현재 시나리오에 대응하는 novel-video 그룹에서 모든 video-container 숨기기
+    const containers = document.querySelectorAll('#' + currentScenario + '-novel-videos .video-container');
+    containers.forEach(el => el.style.display = 'none');
+
+    // 해당 오브젝트만 보이게
+    const targetId = currentScenario + '-' + objectId;
+    const targetEl = document.getElementById(targetId);
+    if (targetEl) {
+      targetEl.style.display = 'block';
+    }
+
+    // 설명 업데이트
+    const name = objectInfo[objectId].name;
+    const novelText = scenarioInfo[currentScenario].novelDescription.replace("[Animal]", name);
+    document.getElementById('novel-description').textContent = novelText;
+
+    // 버튼 하이라이트 업데이트
+    highlightNovelButton('btn-' + objectId);
+  }
+
+  // [왼쪽] Original 버튼 색상 하이라이트
+  function highlightOriginalButton(buttonId) {
+    // 기존 버튼의 is-primary 제거
+    if (activeOriginalButtonId) {
+      document.getElementById(activeOriginalButtonId).classList.remove('is-primary');
+    }
+    // 새로 클릭된 버튼에 추가
+    document.getElementById(buttonId).classList.add('is-primary');
+    // 현재 활성 버튼 기억
+    activeOriginalButtonId = buttonId;
+  }
+
+  // [오른쪽] Novel Object 버튼 색상 하이라이트
+  function highlightNovelButton(buttonId) {
+    // 기존 버튼의 is-primary 제거
+    if (activeNovelButtonId) {
+      document.getElementById(activeNovelButtonId).classList.remove('is-primary');
+    }
+    // 새로 클릭된 버튼에 추가
+    document.getElementById(buttonId).classList.add('is-primary');
+    // 현재 활성 버튼 기억
+    activeNovelButtonId = buttonId;
+  }
+
+  // 페이지 로드 시 기본값으로 ant / object1 설정
+  document.addEventListener('DOMContentLoaded', () => {
+    toggleOriginal('ant');         // 기본 Ant 시나리오
+    toggleNovelObject('object1');  // 기본 Novel Object (Alamosaurus)
+  });
+</script>
+
+<section class="hero teaser">
+  <div style="margin: 2rem 0;"></div>
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <h2 class="title is-3">Level of Detail in Description and Variability in Synthesized Motions</h2>
+    </div>
+
+    <div style="margin: 2rem 0;"></div>
+    <div class="columns is-centered">
+      <div class="column has-text-centered">
+        <video width="100%" height="100%" autoplay controls muted loop playsinline style="max-height: 100%;">
+          <source src="./static/videos/4_description/Level of Detail5.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="hero teaser">
+  <div style="margin: 2rem 0;"></div>
+  <div class="container is-max-desktop">
+
+    <div class="columns is-centered has-text-centered">
+      <h2 class="title is-3">Long Motion Generation</h2>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{anonymous2025t2mvlo,
+  author    = {Anonymous Authors},
+  title     = {How to Move Your Dragon: Text-to-Motion Synthesis For Large Vocabulary Objects},
+  journal   = {ICML Submitted},
+  year      = {2025},
+}</code></pre>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link"
+         href="./static/videos/nerfies_paper.pdf">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            This means you are free to borrow the <a
+              href="https://github.com/nerfies/nerfies.github.io">source code</a> of this website,
+            we just ask that you link back to this page in the footer.
+            Please remember to remove the analytics code included in the header of the website which
+            you do not want on your website.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
