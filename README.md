@@ -1,10 +1,10 @@
-# T2MLVO
+# T2M4LVO
 
-This is the repository that contains source code for the [T2MLVO](https://t2mlvo.github.io/).
+This is the repository that contains source code for the [T2M4LVO](https://t2m4lvo.github.io/).
 
-If you find T2MLVO useful for your work please cite:
+If you find T2M4LVO useful for your work please cite:
 ```
-@article{t2mlvo
+@article{anonymous2025t2m4vlo,
   author    = {Anonymous Authors},
   title     = {How to Move Your Dragon: Text-to-Motion Synthesis For Large Vocabulary Objects},
   journal   = {ICML Submitted},
