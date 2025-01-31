@@ -71,7 +71,7 @@
   <div class="container is-max-desktop">
     <div class="hero-body">
       <video width="100%" height="100%" autoplay controls muted loop playsinline style="max-height: 100%;">
-        <source src="./static/videos/0_teaser/MotionClip_All_characters4_[2-182].mp4" type="video/mp4">
+        <source src="./static/videos/0_teaser/MotionClip_All_characters_Close_Retime.mp4" type="video/mp4">
         Your browser does not support the video tag.
       </video>
       <div style="margin: 1rem 0;"></div>
@@ -88,6 +88,16 @@
       <div class="tabs is-centered">
         <ul>
           <li class="is-active">
+            <a href="#" onclick="changeVideo('./static/videos/1_dragon/Level of Detail Category_Small_Home.mp4', event); return false;">
+              Small Size Animals
+            </a>
+          </li>
+          <li>
+            <a href="#" onclick="changeVideo('./static/videos/1_dragon/Level of Detail Category_Midium_Home.mp4', event); return false;">
+              Medium Size Animals
+            </a>
+          </li>
+          <li>
             <a href="#" onclick="changeVideo('./static/videos/1_dragon/Level of Detail Category_Big_Home.mp4', event); return false;">
               Big Animals
             </a>
@@ -98,28 +108,18 @@
             </a>
           </li>
           <li>
+            <a href="#" onclick="changeVideo('./static/videos/1_dragon/Level of Detail Category_Winged_Home.mp4', event); return false;">
+              Winged Animals
+            </a>
+          </li>
+          <li>
             <a href="#" onclick="changeVideo('./static/videos/1_dragon/Level of Detail Category_Insects_Home.mp4', event); return false;">
               Insects
             </a>
           </li>
           <li>
-            <a href="#" onclick="changeVideo('./static/videos/1_dragon/Level of Detail Category_Midium_Home.mp4', event); return false;">
-              Medium Size Animals
-            </a>
-          </li>
-          <li>
             <a href="#" onclick="changeVideo('./static/videos/1_dragon/Level of Detail Category_SeaWater_Home.mp4', event); return false;">
               Sea Water Animals
-            </a>
-          </li>
-          <li>
-            <a href="#" onclick="changeVideo('./static/videos/1_dragon/Level of Detail Category_Small_Home.mp4', event); return false;">
-              Small Size Animals
-            </a>
-          </li>
-          <li>
-            <a href="#" onclick="changeVideo('./static/videos/1_dragon/Level of Detail Category_Winged_Home.mp4', event); return false;">
-              Winged Animals
             </a>
           </li>
         </ul>
@@ -128,7 +128,7 @@
       <div class="hero-body" id="videoWrapper">
         <video id="categoryVideo" width="80%" height="80%" autoplay controls muted loop playsinline style="max-height: 100%;">
           <source id="categoryVideoSource" 
-                  src="./static/videos/1_dragon/Level of Detail Category_Big_Home.mp4" 
+                  src="./static/videos/1_dragon/Level of Detail Category_Small_Home.mp4" 
                   type="video/mp4">
           Your browser does not support the video tag.
         </video>
