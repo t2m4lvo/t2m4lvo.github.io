@@ -67,49 +67,86 @@
   </div>
 </section>
 
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Motion synthesis for diverse object categories holds great potential for 3D content creation but remains underexplored due to two key challenges: (1) the lack of comprehensive motion datasets that include a wide range of high-quality motions and annotations, and (2) the absence of methods capable of handling heterogeneous skeletal templates from diverse objects.
+          </p>
+          <p>
+            To address these challenges, we contribute the following:
+            First, we augment the Truebones Zoo dataset—a high-quality animal motion dataset covering over 70 species—by annotating it with detailed text descriptions, making it suitable for text-based motion synthesis.
+            Second, we introduce rig augmentation techniques that generate diverse motion data while preserving consistent dynamics, enabling models to adapt to various skeletal configurations.
+            Finally, we redesign existing motion diffusion models to dynamically adapt to arbitrary skeletal templates, enabling motion synthesis for a diverse range of objects with varying structures.
+          </p>
+          <p>
+            Experiments show our method generates realistic, coherent motions from textual descriptions for diverse and even unseen objects, setting a strong foundation for motion generation across diverse object categories with heterogeneous skeletal templates.
+            Qualitative results are available on this <a href="https://t2m4lvo.github.io/" target="_blank">Link</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+  </div>
+</section>
+
+
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
+      <h1 class="title has-text-centered">
+        Synthesis Results on Representative 35 Objects
+      </h1>
       <video width="100%" height="100%" autoplay controls muted loop playsinline style="max-height: 100%;">
         <source src="./static/videos/0_teaser/MotionClip_All_characters_Close_Retime.mp4" type="video/mp4">
         Your browser does not support the video tag.
       </video>
       <div style="margin: 1rem 0;"></div>
-      <h2 class="subtitle has-text-centered">
-        <span class="dnerf">T2M4LVO</span> generates various motions of large vocab objects from text descriptions.
-      </h2>
+      <!-- <h2 class="subtitle has-text-centered">
+        In this work, we introduce a novel framework for text-to-motion synthesis for large-vocabulary objects with diverse skeletal templates. Our proposed diffusion model is trained to generate motions for over 70 unique objects, each with distinct skeletal structures, spanning a wide range of species, including mammals, reptiles, birds, fish, insects, dinosaurs, and mythical creatures.
+      </h2> -->
     </div>
   </div>
 </section>
 
+
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="column has-text-centered">
+      
+      <h1 class="title has-text-centered">
+        Detailed Views for Each Animal Category
+      </h1>
+
       <div class="tabs is-centered">
         <ul>
           <li class="is-active">
             <a href="#" onclick="changeVideo('./static/videos/1_dragon/Level of Detail Category_Small_Home.mp4', event); return false;">
-              Small Size Animals
+              Small-Sized
             </a>
           </li>
           <li>
             <a href="#" onclick="changeVideo('./static/videos/1_dragon/Level of Detail Category_Midium_Home.mp4', event); return false;">
-              Medium Size Animals
+              Medium-Sized
             </a>
           </li>
           <li>
             <a href="#" onclick="changeVideo('./static/videos/1_dragon/Level of Detail Category_Big_Home.mp4', event); return false;">
-              Big Animals
+              Big-Sized
             </a>
           </li>
           <li>
             <a href="#" onclick="changeVideo('./static/videos/1_dragon/Level of Detail Category_Dinos_Home.mp4', event); return false;">
-              Dinosours
+              Dinosaurs
             </a>
           </li>
           <li>
             <a href="#" onclick="changeVideo('./static/videos/1_dragon/Level of Detail Category_Winged_Home.mp4', event); return false;">
-              Winged Animals
+              Winged
             </a>
           </li>
           <li>
@@ -119,7 +156,7 @@
           </li>
           <li>
             <a href="#" onclick="changeVideo('./static/videos/1_dragon/Level of Detail Category_SeaWater_Home.mp4', event); return false;">
-              Sea Water Animals
+              Sea & Water Friends
             </a>
           </li>
         </ul>
@@ -137,16 +174,18 @@
   </div>
 </section>
 
+
+
 <script>
 function changeVideo(videoSrc, event) {
   event.preventDefault();
   
-  // 모든 li에서 is-active 제거
+  // Remove 'is-active' from all li elements
   document.querySelectorAll('.tabs ul li').forEach(li => {
     li.classList.remove('is-active');
   });
 
-  // 클릭된 li에 is-active 추가 (하이라이트)
+  // Add 'is-active' to the clicked li (highlight)
   const clickedLi = event.target.closest('li');
   clickedLi.classList.add('is-active');
 
@@ -161,6 +200,11 @@ function changeVideo(videoSrc, event) {
 <section class="hero is-light is-small">
   <div class="hero-body">
     <div class="container is-max-desktop">
+
+      <h1 class="title has-text-centered">
+        Q: How to Move Your Dragon? A: Text-to-Motion Synthesis!
+      </h1>
+
       <div id="results-carousel" class="carousel results-carousel">
         <div class="item item-steve">
           <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
@@ -227,70 +271,7 @@ function changeVideo(videoSrc, event) {
   </div>
 </section>
 
-<!-- <section class="hero is-light">
-  <div style="margin: 1rem 0;"></div>
-  <div class="container is-max-desktop">
-    <div class="columns is-vcentered">
-      <div class="column is-one-third">
-        <div class="item item-steve" style="box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); padding: 1rem; background-color: white; border-radius: 8px;">
-          <video poster="" id="steve" autoplay controls muted loop playsinline style="border-radius: 8px;">
-            <source src="./static/videos/1_dragon/Bat_Bat-FlyLoop_rest_[2-91].mp4" type="video/mp4">
-          </video>
-          <p class="description">(a) A dragon flying in a continuous loop.</p>
-        </div>
-      </div>
 
-      <div class="column is-one-third">
-        <div class="item item-chair-tp" style="box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); padding: 1rem; background-color: white; border-radius: 8px;">
-          <video poster="" id="chair-tp" autoplay controls muted loop playsinline style="border-radius: 8px;">
-            <source src="./static/videos/1_dragon/Bat_Bat-Kick_rest_[2-91].mp4" type="video/mp4">
-          </video>
-          <p class="description">(b) A dragon performing a kicking motion.</p>
-        </div>
-      </div>
-
-      <div class="column is-one-third">
-        <div class="item item-shiba" style="box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); padding: 1rem; background-color: white; border-radius: 8px;">
-          <video poster="" id="shiba" autoplay controls muted loop playsinline style="border-radius: 8px;">
-            <source src="./static/videos/1_dragon/Bat_Bat-SlowFly_rest_[2-91].mp4" type="video/mp4">
-          </video>
-          <p class="description">(c) A dragon flying slowly and gracefully.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div style="margin: 1rem 0;"></div>
-</section> -->
-
-<section class="section">
-  <div class="container is-max-desktop">
-    <!-- Abstract. -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">
-          <p>
-            Motion synthesis for diverse object categories holds great potential for 3D content creation but remains underexplored due to two key challenges:
-            (1) the lack of comprehensive motion datasets that include a wide range of high-quality motions and annotations, and 
-            (2) the absence of methods capable of handling heterogeneous skeletal topologies.
-          </p>
-          <p>
-            To address these challenges, we contribute the following: First, we augment the Truebones Zoo dataset—a high-quality animal motion dataset covering over 70 species—by annotating it with
-            detailed text descriptions, making it suitable for text-based motion synthesis. Second, we introduce rig augmentation techniques that generate diverse motion data while preserving consistent
-            dynamics, enabling models to adapt to various skeletal configurations. Finally, we redesign existing motion diffusion models to support arbitrary skeletal templates, facilitating motion synthesis
-            across heterogeneous skeletal structures.
-          </p>
-          <p>
-            Experiments show that our approach generates realistic, coherent, diverse, and even novel motions based on textual descriptions, setting a new benchmark for motion generation across diverse object categories.
-            Qualitative results are available on this <a href="https://t2m4lvo.github.io/" target="_blank">Link</a>.
-          </p>
-        </div>
-      </div>
-    </div>
-    <!--/ Abstract. -->
-  </div>
-</section>
 
 <section class="hero teaser">
   <div style="margin: 2rem 0;"></div>
@@ -303,7 +284,7 @@ function changeVideo(videoSrc, event) {
     <div class="content has-text-justified">
       <p>
         We compare the synthesized motions of different models for a dragon using the
-        novel motion description from the ant: “An object is knocked back and ends up lying on its back, motionless.”
+        novel motion description from the ant: “An ant is knocked back and ends up lying on its back, motionless.”
         Among them, only our method successfully generates a dragon motion that closely aligns with the reference motion from the ant.
       </p>
     </div>
@@ -321,7 +302,7 @@ function changeVideo(videoSrc, event) {
 
       <div class="column has-text-centered">
         <p class="title is-5">Ours</p>
-        <video width="300"  autoplay controls muted loop playsinline>
+        <video width="300"  autoplay contrls muted loop playsinline>
           <source src="static/videos/3_novel_description/ours.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
@@ -427,8 +408,8 @@ function changeVideo(videoSrc, event) {
         <!-- Ant / Gazelle 토글 버튼 -->
         <div style="margin: 1rem 0;"></div>
         <div class="buttons is-centered" style="margin-bottom: 1rem;">
-          <button id="btn-ant" class="button is-small is-rounded" onclick="toggleOriginal('ant')">Ant</button>
           <button id="btn-gazelle" class="button is-small is-rounded" onclick="toggleOriginal('gazelle')">Gazelle</button>
+          <button id="btn-ant" class="button is-small is-rounded" onclick="toggleOriginal('ant')">Ant</button>
         </div>
       </div>
 
@@ -643,21 +624,21 @@ function changeVideo(videoSrc, event) {
         
         <!-- [Row 1] Known Objects -->
         <div style="margin: 1rem 0;"></div>
-        <p class="subtitle is-6 has-text-weight-semibold">Known:</p>
+        <p class="subtitle is-6 has-text-weight-semibold">Observed During Training:</p>
         <div class="buttons is-centered">
-          <button id="btn-object5" class="button is-small is-rounded" onclick="toggleNovelObject('object5')">Cat</button>
           <button id="btn-object7" class="button is-small is-rounded" onclick="toggleNovelObject('object7')">Dragon</button>
           <button id="btn-object8" class="button is-small is-rounded" onclick="toggleNovelObject('object8')">Tyranno</button>
+          <button id="btn-object5" class="button is-small is-rounded" onclick="toggleNovelObject('object5')">Cat</button>
           <button id="btn-object6" class="button is-small is-rounded" onclick="toggleNovelObject('object6')">Cricket</button>
         </div>
 
         <!-- [Row 2] Novel Objects -->
-        <p class="subtitle is-6 has-text-weight-semibold">Novel:</p>
+        <p class="subtitle is-6 has-text-weight-semibold">Totally Novel:</p>
         <div class="buttons is-centered">
-          <button id="btn-object1" class="button is-small is-rounded" onclick="toggleNovelObject('object1')">Alamosaurus</button>
-          <button id="btn-object2" class="button is-small is-rounded" onclick="toggleNovelObject('object2')">Icy Dragon</button>
-          <button id="btn-object3" class="button is-small is-rounded" onclick="toggleNovelObject('object3')">Pegasus</button>
           <button id="btn-object4" class="button is-small is-rounded" onclick="toggleNovelObject('object4')">Pig</button>
+          <button id="btn-object1" class="button is-small is-rounded" onclick="toggleNovelObject('object1')">Alamosaurus</button>
+          <button id="btn-object3" class="button is-small is-rounded" onclick="toggleNovelObject('object3')">Pegasus</button>
+          <button id="btn-object2" class="button is-small is-rounded" onclick="toggleNovelObject('object2')">Icy Dragon</button>
         </div>
 
       </div> <!-- end column (오른쪽) -->
@@ -676,11 +657,11 @@ function changeVideo(videoSrc, event) {
   const scenarioInfo = {
     ant: {
       originalDescription: "Ant is knocked back and ends up lying on its back, motionless",
-      novelDescription: "[Animal] is knocked back and ends up lying on its back, motionless"
+      //novelDescription: "[Animal] is knocked back and ends up lying on its back, motionless"
     },
     gazelle: {
       originalDescription: "A gazelle is shot and falls to the ground",
-      novelDescription: "[Animal] is shot and falls to the ground"
+      //novelDescription: "[Animal] is shot and falls to the ground"
     }
   };
 
@@ -724,7 +705,7 @@ function changeVideo(videoSrc, event) {
     highlightOriginalButton('btn-' + scenario);
 
     // 시나리오 바뀌면, 기본 1번(Alamosaurus)부터 다시 보여주도록 설정
-    toggleNovelObject('object1');
+    toggleNovelObject('object7');
   }
 
   // [오른쪽] Known/Novel Objects 토글
@@ -775,19 +756,21 @@ function changeVideo(videoSrc, event) {
 
   // 페이지 로드 시 기본값으로 ant / object1 설정
   document.addEventListener('DOMContentLoaded', () => {
-    toggleOriginal('ant');         // 기본 Ant 시나리오
-    toggleNovelObject('object1');  // 기본 Novel Object (Alamosaurus)
+    toggleOriginal('gazelle');         // 기본 Gazelle 시나리오
+    toggleNovelObject('object7');  // 기본 Novel Object (Alamosaurus)
   });
 </script>
 
 <section class="hero teaser">
   <div style="margin: 2rem 0;"></div>
   <div class="container is-max-desktop">
+    
     <div class="columns is-centered has-text-centered">
       <h2 class="title is-3">Level of Detail in Description and Variability in Synthesized Motions</h2>
     </div>
 
     <div style="margin: 2rem 0;"></div>
+
     <div class="columns is-centered">
       <div class="column has-text-centered">
         <video width="100%" height="100%" autoplay controls muted loop playsinline style="max-height: 100%;">
@@ -796,8 +779,36 @@ function changeVideo(videoSrc, event) {
         </video>
       </div>
     </div>
+
+    <!-- Beautified description section -->
+    <div class="columns is-centered">
+      <div class="column is-10 has-text-centered">
+        <div class="box has-background-light" style="max-width: 700px; margin: 0 auto;">
+          <p class="subtitle is-6">
+            This section highlights the impact of varying levels of detail in text descriptions on synthesized motions.
+            More detailed descriptions result in precise, fine-grained motion nuances, whereas abstract descriptions allow for a broader range of possible motion interpretations.
+            By adjusting the granularity of textual input, our model adapts dynamically, generating motions that exhibit both diversity and coherence.
+          </p>
+
+          <!-- Adding space before captions title -->
+          <div style="margin-top: 1.5rem;"></div>
+
+          <h3 class="title is-5">Captions Used for Motion Synthesis:</h3>
+          <div class="content has-text-left">
+            <ul>
+              <li>Level-1: A T-Rex is <strong>walking forward</strong>.</li>
+              <li>Level-2: A T-Rex walks forward <strong>with its body low</strong> to the ground.</li>
+              <li>Level-3: A T-Rex, <strong>with its head, neck, back, and tail aligned in a straight line</strong>, walks forward. It bends its knees to keep its upper body low to the ground as it moves.</li>
+              <li>Level-4: A T-Rex, maintaining a straight alignment of its head, neck, back, and tail, begins to walk forward. It bends its knees deliberately, allowing its massive upper body to <strong>remain low and balanced as it strides</strong>.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
+
 
 
 <section class="hero teaser">
@@ -805,18 +816,68 @@ function changeVideo(videoSrc, event) {
   <div class="container is-max-desktop">
 
     <div class="columns is-centered has-text-centered">
-      <h2 class="title is-3">Long Motion Generation</h2>
+      <h2 class="title is-3">Long Motion Generation: Journey of T-Rex</h2>
     </div>
-    <div style="margin: 1rem 0;"></div>
+    <div style="margin: 1.5rem 0;"></div>
+
     <div class="columns is-centered">
-      <video width="40%" height="40%" autoplay controls muted loop playsinline style="max-height: 40%;">
-        <source src="./static/videos/5_long/journey-of-trex_250130-225629_Journey_of_Trex_Home.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
-      <div style="margin: 1rem 0;"></div>
+      <div class="column has-text-centered">
+        <video width="100%" autoplay controls muted loop playsinline style="max-height: 400px;">
+          <source src="./static/videos/5_long/journey-of-trex_250130-225629_Journey_of_Trex_Home.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <h3 class="title is-4">Home Camera</h3>
+      </div>
+
+      <div class="column has-text-centered">
+        <video width="100%" autoplay controls muted loop playsinline style="max-height: 400px;">
+          <source src="./static/videos/5_long/journey-of-trex_250130-225629_Journey_of_Trex_Right.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <h3 class="title is-4">Right Camera</h3>
+      </div>
     </div>
+
+    <!-- Beautified description section -->
+    <div class="columns is-centered">
+      <div class="column is-10 has-text-centered">
+        <div class="box has-background-light">
+          <p class="subtitle is-6">
+            This demonstration showcases the long motion generation of a T-Rex from multiple perspectives. 
+            Though trained on relatively short sequences (up to <strong>90 frames</strong>), our model extends to 
+            longer motions (more than <strong>800 frames</strong>) by conditioning on sequential descriptions and ensuring smooth transitions between 
+            consecutive motion chunks via an overlapping window with weighted blending during sampling.
+          </p>
+
+          <!-- Adding space before captions title -->
+          <div style="margin-top: 1.5rem;"></div>
+
+          <h3 class="title is-5">Captions Used for Motion Synthesis:</h3>
+          <div class="content has-text-left">
+            <ul>
+              <li>🦖 A T-Rex wakes up and gets up from a lying position.</li>
+              <li>🦖 A T-Rex turns its head to the right and observes something.</li>
+              <li>🦖 A T-Rex bends down and bites something inside a cave.</li>
+              <li>🦖 A T-Rex walks slowly forward with its body aligned in a straight line.</li>
+              <li>🦖 A T-Rex is sprinting with its head facing forward and body lowered for balance.</li>
+              <li>🦖 A T-Rex dashes forward and bites into something, then chews and swallows it.</li>
+              <li>🦖 A T-Rex steps back slowly while facing forward.</li>
+              <li>🦖 A T-Rex bends its knees, lowers its body, and reacts to being hit on the right side of its face.</li>
+              <li>🦖 A T-Rex with an injured leg walks awkwardly, growling in pain.</li>
+              <li>🦖 A T-Rex is shot and falls to the ground.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
+
+
+
+
+
 
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
