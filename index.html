@@ -1,0 +1,1570 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="How to Move Your Dragon: Text-to-Motion Synthesis for Large Vocabulary Objects">
+  <meta name="keywords" content="T2M4LVO">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>How to Move Your Dragon: Text-to-Motion Synthesis For Large Vocabulary Objects</title>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+  <meta charset="UTF-8" />
+  <title>Tab Highlight Example</title>
+  <style>
+    .tabs ul li.is-active a {
+      background-color: #eee;
+      color: #333;
+      font-weight: bold;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">How to Move Your Dragon: Text-to-Motion Synthesis For Large Vocabulary Objects</h1>
+          <div class="is-size-3 publication-authors">
+            <span class="author-block">Anonymous Authors</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Motion synthesis for diverse object categories holds great potential for 3D content creation but remains underexplored due to two key challenges: (1) the lack of comprehensive motion datasets that include a wide range of high-quality motions and annotations, and (2) the absence of methods capable of handling heterogeneous skeletal templates from diverse objects.
+          </p>
+          <p>
+            To address these challenges, we contribute the following:
+            First, we augment the Truebones Zoo dataset—a high-quality animal motion dataset covering over 70 species—by annotating it with detailed text descriptions, making it suitable for text-based motion synthesis.
+            Second, we introduce rig augmentation techniques that generate diverse motion data while preserving consistent dynamics, enabling models to adapt to various skeletal configurations.
+            Finally, we redesign existing motion diffusion models to dynamically adapt to arbitrary skeletal templates, enabling motion synthesis for a diverse range of objects with varying structures.
+          </p>
+          <p>
+            Experiments show our method generates realistic, coherent motions from textual descriptions for diverse and even unseen objects, setting a strong foundation for motion generation across diverse object categories with heterogeneous skeletal templates.
+            Qualitative results are available on this <a href="https://t2m4lvo.github.io/" target="_blank">Link</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <h1 class="title has-text-centered">
+        Synthesis Results on Representative 35 Objects
+      </h1>
+      <video width="100%" height="100%" autoplay controls autoplay muted loop playsinline preload="metadata" style="max-height: 100%;">
+        <source src="./static/videos_compressed/0_teaser/All_Home.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <div style="margin: 1rem 0;"></div>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="column has-text-centered">
+      
+      <h1 class="title has-text-centered">
+        Detailed Views for Each Animal Category
+      </h1>
+
+      <div class="tabs is-centered">
+        <ul>
+          <li class="is-active">
+            <a href="#" onclick="changeVideo('./static/videos_compressed/0_teaser/Small_Home.mp4', event); return false;">
+              Small-Sized
+            </a>
+          </li>
+          <li>
+            <a href="#" onclick="changeVideo('./static/videos_compressed/0_teaser/Midium_Home.mp4', event); return false;">
+              Medium-Sized
+            </a>
+          </li>
+          <li>
+            <a href="#" onclick="changeVideo('./static/videos_compressed/0_teaser/Big_Home.mp4', event); return false;">
+              Big-Sized
+            </a>
+          </li>
+          <li>
+            <a href="#" onclick="changeVideo('./static/videos_compressed/0_teaser/Dinos_Home.mp4', event); return false;">
+              Dinosaurs
+            </a>
+          </li>
+          <li>
+            <a href="#" onclick="changeVideo('./static/videos_compressed/0_teaser/Winged_Home.mp4', event); return false;">
+              Winged
+            </a>
+          </li>
+          <li>
+            <a href="#" onclick="changeVideo('./static/videos_compressed/0_teaser/Insects_Home.mp4', event); return false;">
+              Insects
+            </a>
+          </li>
+          <li>
+            <a href="#" onclick="changeVideo('./static/videos_compressed/0_teaser/SeaWater_Home.mp4', event); return false;">
+              Sea & Water Friends
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="hero-body" id="videoWrapper">
+        <video id="categoryVideo" width="80%" height="80%" controls autoplay muted loop playsinline preload="metadata" style="max-height: 100%;">
+          <source id="categoryVideoSource" 
+                  src="./static/videos_compressed/0_teaser/Small_Home.mp4" 
+                  type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+<script>
+function changeVideo(videoSrc, event) {
+  event.preventDefault();
+  
+  document.querySelectorAll('.tabs ul li').forEach(li => {
+    li.classList.remove('is-active');
+  });
+
+  const clickedLi = event.target.closest('li');
+  clickedLi.classList.add('is-active');
+
+  const video = document.getElementById("categoryVideo");
+  const source = document.getElementById("categoryVideoSource");
+  source.src = videoSrc;
+  video.load();
+  video.play();
+}
+</script>
+
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+
+      <h1 class="title has-text-centered">
+        Q: How to Move Your Dragon? A: Text-to-Motion Synthesis!
+      </h1>
+
+      <div class="content has-text-centered">
+        <p>
+          A collection of newly synthesized dragon motions generated from textual descriptions, absent from the original dataset.
+        </p>
+      </div>
+
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-steve">
+            <video poster="" id="steve" controls autoplay muted loop playsinline preload="metadata" height="100%">
+            <source src="./static/videos_compressed/1_dragon/001.mp4"
+                    type="video/mp4">
+            </video>
+        </div>
+
+
+        <div class="item item-steve">
+            <video poster="" id="steve" controls autoplay muted loop playsinline preload="metadata" height="100%">
+            <source src="./static/videos_compressed/1_dragon/002.mp4"
+                    type="video/mp4">
+            </video>
+        </div>
+
+
+        <div class="item item-steve">
+            <video poster="" id="steve" controls autoplay muted loop playsinline preload="metadata" height="100%">
+            <source src="./static/videos_compressed/1_dragon/003.mp4"
+                    type="video/mp4">
+            </video>
+        </div>
+
+
+        <div class="item item-steve">
+            <video poster="" id="steve" controls autoplay muted loop playsinline preload="metadata" height="100%">
+            <source src="./static/videos_compressed/1_dragon/004.mp4"
+                    type="video/mp4">
+            </video>
+        </div>
+
+
+        <div class="item item-steve">
+            <video poster="" id="steve" controls autoplay muted loop playsinline preload="metadata" height="100%">
+            <source src="./static/videos_compressed/1_dragon/005.mp4"
+                    type="video/mp4">
+            </video>
+        </div>
+
+
+        <div class="item item-steve">
+            <video poster="" id="steve" controls autoplay muted loop playsinline preload="metadata" height="100%">
+            <source src="./static/videos_compressed/1_dragon/006.mp4"
+                    type="video/mp4">
+            </video>
+        </div>
+
+
+        <div class="item item-steve">
+            <video poster="" id="steve" controls autoplay muted loop playsinline preload="metadata" height="100%">
+            <source src="./static/videos_compressed/1_dragon/007.mp4"
+                    type="video/mp4">
+            </video>
+        </div>
+
+
+        <div class="item item-steve">
+            <video poster="" id="steve" controls autoplay muted loop playsinline preload="metadata" height="100%">
+            <source src="./static/videos_compressed/1_dragon/008.mp4"
+                    type="video/mp4">
+            </video>
+        </div>
+
+
+        <div class="item item-steve">
+            <video poster="" id="steve" controls autoplay muted loop playsinline preload="metadata" height="100%">
+            <source src="./static/videos_compressed/1_dragon/009.mp4"
+                    type="video/mp4">
+            </video>
+        </div>
+
+
+        <div class="item item-steve">
+            <video poster="" id="steve" controls autoplay muted loop playsinline preload="metadata" height="100%">
+            <source src="./static/videos_compressed/1_dragon/010.mp4"
+                    type="video/mp4">
+            </video>
+        </div>
+
+
+        <div class="item item-steve">
+            <video poster="" id="steve" controls autoplay muted loop playsinline preload="metadata" height="100%">
+            <source src="./static/videos_compressed/1_dragon/011.mp4"
+                    type="video/mp4">
+            </video>
+        </div>
+
+
+        <div class="item item-steve">
+            <video poster="" id="steve" controls autoplay muted loop playsinline preload="metadata" height="100%">
+            <source src="./static/videos_compressed/1_dragon/012.mp4"
+                    type="video/mp4">
+            </video>
+        </div>
+
+
+        <div class="item item-steve">
+            <video poster="" id="steve" controls autoplay muted loop playsinline preload="metadata" height="100%">
+            <source src="./static/videos_compressed/1_dragon/013.mp4"
+                    type="video/mp4">
+            </video>
+        </div>
+
+
+        <div class="item item-steve">
+            <video poster="" id="steve" controls autoplay muted loop playsinline preload="metadata" height="100%">
+            <source src="./static/videos_compressed/1_dragon/014.mp4"
+                    type="video/mp4">
+            </video>
+        </div>
+
+
+        <div class="item item-steve">
+            <video poster="" id="steve" controls autoplay muted loop playsinline preload="metadata" height="100%">
+            <source src="./static/videos_compressed/1_dragon/015.mp4"
+                    type="video/mp4">
+            </video>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser" id="adaptibility">
+  <div style="margin: 2rem 0;"></div>
+  <div class="container is-max-desktop">
+    
+    <div class="columns is-centered has-text-centered">
+      <h2 class="title is-3">Adaptability to Novel Motion Descriptions</h2>
+    </div>
+    <div class="content has-text-justified">
+      <p>
+        We compare the synthesized motions of different models for a dragon using the
+        novel motion description from the ant: “An ant is knocked back and ends up lying on its back, motionless.”
+        Among them, only our method successfully generates a dragon motion that closely aligns with the reference motion from the ant.
+      </p>
+    </div>
+
+    <div style="margin: 2rem 0;"></div>
+
+    <div class="columns is-vcentered">
+      <div class="column has-text-centered" style="border-right: 2px dashed #ccc;">
+        <p class="title is-5">Reference</p>
+        <video width="300" controls autoplay muted loop playsinline preload="metadata">
+          <source src="static/videos_compressed/3_novel_description/ant_original.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+
+      <div class="column has-text-centered">
+        <p class="title is-5">Ours</p>
+        <video width="300" controls autoplay muted loop playsinline preload="metadata">
+          <source src="static/videos_compressed/3_novel_description/ours.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+
+      <div class="column has-text-centered">
+        <p class="title is-5">w/ GPT-Caption</p>
+        <video width="300" controls autoplay muted loop playsinline preload="metadata">
+          <source src="static/videos_compressed/3_novel_description/with_GPT_caption.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+
+      <div class="column has-text-centered">
+        <p class="title is-5">w/o Rig Aug.</p>
+        <video width="300" controls autoplay muted loop playsinline preload="metadata">
+          <source src="static/videos_compressed/3_novel_description/without_rig_aug.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+
+      <div class="column has-text-centered">
+        <p class="title is-5">SO-MDMs</p>
+        <video width="300" controls autoplay muted loop playsinline preload="metadata">
+          <source src="static/videos_compressed/3_novel_description/single_object_mdm.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser" id="motion_synthesis">
+  <div style="margin: 2rem 0;"></div>
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <h2 class="title is-3">Motion Synthesis on Known/Novel Objects</h2>
+    </div>
+
+    <div class="columns is-centered" style="align-items: flex-start; margin-top: 2rem;">
+
+      <div class="column has-text-centered is-flex is-flex-direction-column is-align-items-center">
+        <h3 class="title is-5">Original Object's Motion</h3>
+
+        <div class="video-display" style="
+          width: 320px; 
+          height: 240px;
+          position: relative; 
+          border: 1px solid #ddd;
+          border-radius: 4px;
+          background-color: #000;
+          overflow: hidden;
+          margin: 0 auto;">
+          
+          <div id="original-ant" style="
+            display: none; 
+            position: absolute; 
+            top: 0; left: 0; 
+            width: 100%; height: 100%;">
+            <video 
+              width="100%" 
+              height="100%" 
+              controls autoplay 
+              muted 
+              loop 
+              playsinline
+              preload="metadata"
+              style="max-height: 100%;">
+              <source src="./static/videos_compressed/2_novel/ant_knockedback-*-original.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+
+          <div id="original-gazelle" style="
+            display: none; 
+            position: absolute; 
+            top: 0; left: 0; 
+            width: 100%; height: 100%;">
+            <video 
+              width="100%" 
+              height="100%" 
+              controls autoplay 
+              muted 
+              loop 
+              playsinline
+              preload="metadata"
+              style="max-height: 100%;">
+              <source src="./static/videos_compressed/2_novel/gazelle_fall-*-original.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+
+          <div id="original-brownbear01" style="
+              display: none; 
+              position: absolute; 
+              top: 0; left: 0; 
+              width: 100%; height: 100%;">
+              <video 
+                width="100%" 
+                height="100%" 
+                controls autoplay 
+                muted 
+                loop 
+                playsinline
+                preload="metadata"
+                style="max-height: 100%;">
+                <source src="./static/videos_compressed/2_novel/brownbear_attack3-*-original.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+          </div>
+
+          <div id="original-brownbear02" style="
+              display: none; 
+              position: absolute; 
+              top: 0; left: 0; 
+              width: 100%; height: 100%;">
+              <video 
+                width="100%" 
+                height="100%" 
+                controls autoplay 
+                muted 
+                loop 
+                playsinline
+                preload="metadata"
+                style="max-height: 100%;">
+                <source src="./static/videos_compressed/2_novel/breanbear_charge-*-original.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+          </div>
+
+          <div id="original-buffalo" style="
+              display: none; 
+              position: absolute; 
+              top: 0; left: 0; 
+              width: 100%; height: 100%;">
+              <video 
+                width="100%" 
+                height="100%" 
+                controls autoplay 
+                muted 
+                loop 
+                playsinline
+                preload="metadata"
+                style="max-height: 100%;">
+                <source src="./static/videos_compressed/2_novel/buffalo_getup-*-original.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+          </div>
+
+          <div id="original-eagle" style="
+              display: none; 
+              position: absolute; 
+              top: 0; left: 0; 
+              width: 100%; height: 100%;">
+              <video 
+                width="100%" 
+                height="100%" 
+                controls autoplay 
+                muted 
+                loop 
+                playsinline
+                preload="metadata"
+                style="max-height: 100%;">
+                <source src="./static/videos_compressed/2_novel/eagle_landing-*-original.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+          </div>
+
+          <div id="original-leopard" style="
+              display: none; 
+              position: absolute; 
+              top: 0; left: 0; 
+              width: 100%; height: 100%;">
+              <video 
+                width="100%" 
+                height="100%" 
+                controls autoplay 
+                muted 
+                loop 
+                playsinline
+                preload="metadata"
+                style="max-height: 100%;">
+                <source src="./static/videos_compressed/2_novel/leopard_pounce-*-original.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+          </div>
+
+          <div id="original-sandmouse" style="
+              display: none; 
+              position: absolute; 
+              top: 0; left: 0; 
+              width: 100%; height: 100%;">
+              <video 
+                width="100%" 
+                height="100%" 
+                controls autoplay 
+                muted 
+                loop 
+                playsinline
+                preload="metadata"
+                style="max-height: 100%;">
+                <source src="./static/videos_compressed/2_novel/sandmouse_digin-*-original.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+          </div>
+        </div>
+        <p id="original-description" class="mt-2"></p>
+
+        <div style="margin: 1rem 0;"></div>
+        <div class="buttons is-centered" style="margin-bottom: 1rem;">
+          <button id="btn-gazelle" class="button is-small is-rounded" onclick="toggleOriginal('gazelle')">Gazelle</button>
+          <button id="btn-ant" class="button is-small is-rounded" onclick="toggleOriginal('ant')">Ant</button>
+          <button id="btn-brownbear01" class="button is-small is-rounded" onclick="toggleOriginal('brownbear01')">BrownBear-Attack</button>
+          <button id="btn-brownbear02" class="button is-small is-rounded" onclick="toggleOriginal('brownbear02')">BrownBear-Charge</button>
+          <button id="btn-buffalo" class="button is-small is-rounded" onclick="toggleOriginal('buffalo')">Buffalo</button>
+          <button id="btn-eagle" class="button is-small is-rounded" onclick="toggleOriginal('eagle')">Eagle</button>
+          <button id="btn-leopard" class="button is-small is-rounded" onclick="toggleOriginal('leopard')">Leopard</button>
+          <button id="btn-sandmouse" class="button is-small is-rounded" onclick="toggleOriginal('sandmouse')">SandMouse</button>
+        </div>
+      </div>
+
+      <div class="column has-text-centered is-flex is-flex-direction-column is-align-items-center">
+
+        <h3 class="title is-5">Known/Novel Objects' Motion</h3>
+
+        <div class="video-display" style="
+          width: 320px; 
+          height: 240px;
+          position: relative;
+          border: 1px solid #ddd;
+          border-radius: 4px;
+          background-color: #000;
+          overflow: hidden;
+          margin: 0 auto;">
+          
+          <div id="ant-novel-videos" style="display: none; width:100%; height:100%; position:absolute; top:0; left:0;">
+            <div id="ant-object5" class="video-container" style="
+              display: none; 
+              position: absolute; 
+              top: 0; left: 0; 
+              width: 100%; height: 100%;">
+              <video width="100%" height="100%" controls autoplay muted loop playsinline preload="metadata" style="max-height: 100%;">
+                <source src="./static/videos_compressed/2_novel/ant_knockedback-*-cat.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <div id="ant-object7" class="video-container" style="
+              display: none; 
+              position: absolute; 
+              top: 0; left: 0; 
+              width: 100%; height: 100%;">
+              <video width="100%" height="100%" controls autoplay muted loop playsinline preload="metadata" style="max-height: 100%;">
+                <source src="./static/videos_compressed/2_novel/ant_knockedback-*-dragon.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <div id="ant-object8" class="video-container" style="
+              display: none; 
+              position: absolute; 
+              top: 0; left: 0; 
+              width: 100%; height: 100%;">
+              <video width="100%" height="100%" controls autoplay muted loop playsinline preload="metadata" style="max-height: 100%;">
+                <source src="./static/videos_compressed/2_novel/ant_knockedback-*-tyranno.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <div id="ant-object6" class="video-container" style="
+              display: none; 
+              position: absolute; 
+              top: 0; left: 0; 
+              width: 100%; height: 100%;">
+              <video width="100%" height="100%" controls autoplay muted loop playsinline preload="metadata" style="max-height: 100%;">
+                <source src="./static/videos_compressed/2_novel/ant_knockedback-*-cricket.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+
+            <div id="ant-object1" class="video-container" style="
+              display: none; 
+              position: absolute; 
+              top: 0; left: 0; 
+              width: 100%; height: 100%;">
+              <video width="100%" height="100%" controls autoplay muted loop playsinline preload="metadata" style="max-height: 100%;">
+                <source src="./static/videos_compressed/2_novel/ant_knockedback-*-alamosaurus.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <div id="ant-object2" class="video-container" style="
+              display: none; 
+              position: absolute; 
+              top: 0; left: 0; 
+              width: 100%; height: 100%;">
+              <video width="100%" height="100%" controls autoplay muted loop playsinline preload="metadata" style="max-height: 100%;">
+                <source src="./static/videos_compressed/2_novel/ant_knockedback-*-icydragon.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <div id="ant-object3" class="video-container" style="
+              display: none; 
+              position: absolute; 
+              top: 0; left: 0; 
+              width: 100%; height: 100%;">
+              <video width="100%" height="100%" controls autoplay muted loop playsinline preload="metadata" style="max-height: 100%;">
+                <source src="./static/videos_compressed/2_novel/ant_knockedback-*-pegasus.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <div id="ant-object4" class="video-container" style="
+              display: none; 
+              position: absolute; 
+              top: 0; left: 0; 
+              width: 100%; height: 100%;">
+              <video width="100%" height="100%" controls autoplay muted loop playsinline preload="metadata" style="max-height: 100%;">
+                <source src="./static/videos_compressed/2_novel/ant_knockedback-*-pig.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div> 
+
+          <div id="gazelle-novel-videos" style="display: none; width:100%; height:100%; position:absolute; top:0; left:0;">
+            <div id="gazelle-object5" class="video-container" style="
+              display: none;
+              position: absolute; 
+              top: 0; left: 0; 
+              width: 100%; height: 100%;">
+              <video width="100%" height="100%" controls autoplay muted loop playsinline preload="metadata" style="max-height: 100%;">
+                <source src="./static/videos_compressed/2_novel/gazelle_fall-*-cat.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <div id="gazelle-object7" class="video-container" style="
+              display: none;
+              position: absolute; 
+              top: 0; left: 0; 
+              width: 100%; height: 100%;">
+              <video width="100%" height="100%" controls autoplay muted loop playsinline preload="metadata" style="max-height: 100%;">
+                <source src="./static/videos_compressed/2_novel/gazelle_fall-*-dragon.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <div id="gazelle-object8" class="video-container" style="
+              display: none;
+              position: absolute; 
+              top: 0; left: 0; 
+              width: 100%; height: 100%;">
+              <video width="100%" height="100%" controls autoplay muted loop playsinline preload="metadata" style="max-height: 100%;">
+                <source src="./static/videos_compressed/2_novel/gazelle_fall-*-tyranno.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <div id="gazelle-object6" class="video-container" style="
+              display: none;
+              position: absolute; 
+              top: 0; left: 0; 
+              width: 100%; height: 100%;">
+              <video width="100%" height="100%" controls autoplay muted loop playsinline preload="metadata" style="max-height: 100%;">
+                <source src="./static/videos_compressed/2_novel/gazelle_fall-*-cricket.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+
+            <div id="gazelle-object1" class="video-container" style="
+              display: none;
+              position: absolute; 
+              top: 0; left: 0; 
+              width: 100%; height: 100%;">
+              <video width="100%" height="100%" controls autoplay muted loop playsinline preload="metadata" style="max-height: 100%;">
+                <source src="./static/videos_compressed/2_novel/gazelle_fall-*-alamosaurus.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <div id="gazelle-object2" class="video-container" style="
+              display: none;
+              position: absolute; 
+              top: 0; left: 0; 
+              width: 100%; height: 100%;">
+              <video width="100%" height="100%" controls autoplay muted loop playsinline preload="metadata" style="max-height: 100%;">
+                <source src="./static/videos_compressed/2_novel/gazelle_fall-*-icydragon.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <div id="gazelle-object3" class="video-container" style="
+              display: none;
+              position: absolute; 
+              top: 0; left: 0; 
+              width: 100%; height: 100%;">
+              <video width="100%" height="100%" controls autoplay muted loop playsinline preload="metadata" style="max-height: 100%;">
+                <source src="./static/videos_compressed/2_novel/gazelle_fall-*-pegasus.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <div id="gazelle-object4" class="video-container" style="
+              display: none;
+              position: absolute; 
+              top: 0; left: 0; 
+              width: 100%; height: 100%;">
+              <video width="100%" height="100%" controls autoplay muted loop playsinline preload="metadata" style="max-height: 100%;">
+                <source src="./static/videos_compressed/2_novel/gazelle_fall-*-pig.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div> 
+
+          <div id="brownbear01-novel-videos" style="display: none; width:100%; height:100%; position:absolute; top:0; left:0;">
+            <div id="brownbear01-object5" class="video-container" style="
+              display: none;
+              position: absolute; 
+              top: 0; left: 0; 
+              width: 100%; height: 100%;">
+              <video width="100%" height="100%" controls autoplay muted loop playsinline preload="metadata" style="max-height: 100%;">
+                <source src="./static/videos_compressed/2_novel/brownbear_attack3-*-cat.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <div id="brownbear01-object7" class="video-container" style="
+              display: none;
+              position: absolute; 
+              top: 0; left: 0; 
+              width: 100%; height: 100%;">
+              <video width="100%" height="100%" controls autoplay muted loop playsinline preload="metadata" style="max-height: 100%;">
+                <source src="./static/videos_compressed/2_novel/brownbear_attack3-*-dragon.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <div id="brownbear01-object8" class="video-container" style="
+              display: none;
+              position: absolute; 
+              top: 0; left: 0; 
+              width: 100%; height: 100%;">
+              <video width="100%" height="100%" controls autoplay muted loop playsinline preload="metadata" style="max-height: 100%;">
+                <source src="./static/videos_compressed/2_novel/brownbear_attack3-*-tyranno.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <div id="brownbear01-object6" class="video-container" style="
+              display: none;
+              position: absolute; 
+              top: 0; left: 0; 
+              width: 100%; height: 100%;">
+              <video width="100%" height="100%" controls autoplay muted loop playsinline preload="metadata" style="max-height: 100%;">
+                <source src="./static/videos_compressed/2_novel/brownbear_attack3-*-cricket.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+
+            <div id="brownbear01-object1" class="video-container" style="
+              display: none;
+              position: absolute; 
+              top: 0; left: 0; 
+              width: 100%; height: 100%;">
+              <video width="100%" height="100%" controls autoplay muted loop playsinline preload="metadata" style="max-height: 100%;">
+                <source src="./static/videos_compressed/2_novel/brownbear_attack3-*-alamosaurus.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <div id="brownbear01-object2" class="video-container" style="
+              display: none;
+              position: absolute; 
+              top: 0; left: 0; 
+              width: 100%; height: 100%;">
+              <video width="100%" height="100%" controls autoplay muted loop playsinline preload="metadata" style="max-height: 100%;">
+                <source src="./static/videos_compressed/2_novel/brownbear_attack3-*-icydragon.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <div id="brownbear01-object3" class="video-container" style="
+              display: none;
+              position: absolute; 
+              top: 0; left: 0; 
+              width: 100%; height: 100%;">
+              <video width="100%" height="100%" controls autoplay muted loop playsinline preload="metadata" style="max-height: 100%;">
+                <source src="./static/videos_compressed/2_novel/brownbear_attack3-*-pegasus.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <div id="brownbear01-object4" class="video-container" style="
+              display: none;
+              position: absolute; 
+              top: 0; left: 0; 
+              width: 100%; height: 100%;">
+              <video width="100%" height="100%" controls autoplay muted loop playsinline preload="metadata" style="max-height: 100%;">
+                <source src="./static/videos_compressed/2_novel/brownbear_attack3-*-pig.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div> 
+
+          <div id="brownbear02-novel-videos" style="display: none; width:100%; height:100%; position:absolute; top:0; left:0;">
+            <div id="brownbear02-object5" class="video-container" style="
+              display: none;
+              position: absolute; 
+              top: 0; left: 0; 
+              width: 100%; height: 100%;">
+              <video width="100%" height="100%" controls autoplay muted loop playsinline preload="metadata" style="max-height: 100%;">
+                <source src="./static/videos_compressed/2_novel/breanbear_charge-*-cat.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <div id="brownbear02-object7" class="video-container" style="
+              display: none;
+              position: absolute; 
+              top: 0; left: 0; 
+              width: 100%; height: 100%;">
+              <video width="100%" height="100%" controls autoplay muted loop playsinline preload="metadata" style="max-height: 100%;">
+                <source src="./static/videos_compressed/2_novel/breanbear_charge-*-dragon.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <div id="brownbear02-object8" class="video-container" style="
+              display: none;
+              position: absolute; 
+              top: 0; left: 0; 
+              width: 100%; height: 100%;">
+              <video width="100%" height="100%" controls autoplay muted loop playsinline preload="metadata" style="max-height: 100%;">
+                <source src="./static/videos_compressed/2_novel/breanbear_charge-*-tyranno.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <div id="brownbear02-object6" class="video-container" style="
+              display: none;
+              position: absolute; 
+              top: 0; left: 0; 
+              width: 100%; height: 100%;">
+              <video width="100%" height="100%" controls autoplay muted loop playsinline preload="metadata" style="max-height: 100%;">
+                <source src="./static/videos_compressed/2_novel/breanbear_charge-*-cricket.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+
+            <div id="brownbear02-object1" class="video-container" style="
+              display: none;
+              position: absolute; 
+              top: 0; left: 0; 
+              width: 100%; height: 100%;">
+              <video width="100%" height="100%" controls autoplay muted loop playsinline preload="metadata" style="max-height: 100%;">
+                <source src="./static/videos_compressed/2_novel/breanbear_charge-*-alamosaurus.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <div id="brownbear02-object2" class="video-container" style="
+              display: none;
+              position: absolute; 
+              top: 0; left: 0; 
+              width: 100%; height: 100%;">
+              <video width="100%" height="100%" controls autoplay muted loop playsinline preload="metadata" style="max-height: 100%;">
+                <source src="./static/videos_compressed/2_novel/breanbear_charge-*-icydragon.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <div id="brownbear02-object3" class="video-container" style="
+              display: none;
+              position: absolute; 
+              top: 0; left: 0; 
+              width: 100%; height: 100%;">
+              <video width="100%" height="100%" controls autoplay muted loop playsinline preload="metadata" style="max-height: 100%;">
+                <source src="./static/videos_compressed/2_novel/breanbear_charge-*-pegasus.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <div id="brownbear02-object4" class="video-container" style="
+              display: none;
+              position: absolute; 
+              top: 0; left: 0; 
+              width: 100%; height: 100%;">
+              <video width="100%" height="100%" controls autoplay muted loop playsinline preload="metadata" style="max-height: 100%;">
+                <source src="./static/videos_compressed/2_novel/breanbear_charge-*-pig.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div> 
+
+          <div id="buffalo-novel-videos" style="display: none; width:100%; height:100%; position:absolute; top:0; left:0;">
+            <div id="buffalo-object5" class="video-container" style="
+              display: none;
+              position: absolute; 
+              top: 0; left: 0; 
+              width: 100%; height: 100%;">
+              <video width="100%" height="100%" controls autoplay muted loop playsinline preload="metadata" style="max-height: 100%;">
+                <source src="./static/videos_compressed/2_novel/buffalo_getup-*-cat.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <div id="buffalo-object7" class="video-container" style="
+              display: none;
+              position: absolute; 
+              top: 0; left: 0; 
+              width: 100%; height: 100%;">
+              <video width="100%" height="100%" controls autoplay muted loop playsinline preload="metadata" style="max-height: 100%;">
+                <source src="./static/videos_compressed/2_novel/buffalo_getup-*-dragon.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <div id="buffalo-object8" class="video-container" style="
+              display: none;
+              position: absolute; 
+              top: 0; left: 0; 
+              width: 100%; height: 100%;">
+              <video width="100%" height="100%" controls autoplay muted loop playsinline preload="metadata" style="max-height: 100%;">
+                <source src="./static/videos_compressed/2_novel/buffalo_getup-*-tyranno.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <div id="buffalo-object6" class="video-container" style="
+              display: none;
+              position: absolute; 
+              top: 0; left: 0; 
+              width: 100%; height: 100%;">
+              <video width="100%" height="100%" controls autoplay muted loop playsinline preload="metadata" style="max-height: 100%;">
+                <source src="./static/videos_compressed/2_novel/buffalo_getup-*-cricket.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+
+            <div id="buffalo-object1" class="video-container" style="
+              display: none;
+              position: absolute; 
+              top: 0; left: 0; 
+              width: 100%; height: 100%;">
+              <video width="100%" height="100%" controls autoplay muted loop playsinline preload="metadata" style="max-height: 100%;">
+                <source src="./static/videos_compressed/2_novel/buffalo_getup-*-alamosaurus.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <div id="buffalo-object2" class="video-container" style="
+              display: none;
+              position: absolute; 
+              top: 0; left: 0; 
+              width: 100%; height: 100%;">
+              <video width="100%" height="100%" controls autoplay muted loop playsinline preload="metadata" style="max-height: 100%;">
+                <source src="./static/videos_compressed/2_novel/buffalo_getup-*-icydragon.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <div id="buffalo-object3" class="video-container" style="
+              display: none;
+              position: absolute; 
+              top: 0; left: 0; 
+              width: 100%; height: 100%;">
+              <video width="100%" height="100%" controls autoplay muted loop playsinline preload="metadata" style="max-height: 100%;">
+                <source src="./static/videos_compressed/2_novel/buffalo_getup-*-pegasus.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <div id="buffalo-object4" class="video-container" style="
+              display: none;
+              position: absolute; 
+              top: 0; left: 0; 
+              width: 100%; height: 100%;">
+              <video width="100%" height="100%" controls autoplay muted loop playsinline preload="metadata" style="max-height: 100%;">
+                <source src="./static/videos_compressed/2_novel/buffalo_getup-*-pig.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div> 
+
+          <div id="eagle-novel-videos" style="display: none; width:100%; height:100%; position:absolute; top:0; left:0;">
+            <div id="eagle-object5" class="video-container" style="
+              display: none;
+              position: absolute; 
+              top: 0; left: 0; 
+              width: 100%; height: 100%;">
+              <video width="100%" height="100%" controls autoplay muted loop playsinline preload="metadata" style="max-height: 100%;">
+                <source src="./static/videos_compressed/2_novel/eagle_landing-*-cat.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <div id="eagle-object7" class="video-container" style="
+              display: none;
+              position: absolute; 
+              top: 0; left: 0; 
+              width: 100%; height: 100%;">
+              <video width="100%" height="100%" controls autoplay muted loop playsinline preload="metadata" style="max-height: 100%;">
+                <source src="./static/videos_compressed/2_novel/eagle_landing-*-dragon.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <div id="eagle-object8" class="video-container" style="
+              display: none;
+              position: absolute; 
+              top: 0; left: 0; 
+              width: 100%; height: 100%;">
+              <video width="100%" height="100%" controls autoplay muted loop playsinline preload="metadata" style="max-height: 100%;">
+                <source src="./static/videos_compressed/2_novel/eagle_landing-*-tyranno.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <div id="eagle-object6" class="video-container" style="
+              display: none;
+              position: absolute; 
+              top: 0; left: 0; 
+              width: 100%; height: 100%;">
+              <video width="100%" height="100%" controls autoplay muted loop playsinline preload="metadata" style="max-height: 100%;">
+                <source src="./static/videos_compressed/2_novel/eagle_landing-*-cricket.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+
+            <div id="eagle-object1" class="video-container" style="
+              display: none;
+              position: absolute; 
+              top: 0; left: 0; 
+              width: 100%; height: 100%;">
+              <video width="100%" height="100%" controls autoplay muted loop playsinline preload="metadata" style="max-height: 100%;">
+                <source src="./static/videos_compressed/2_novel/eagle_landing-*-alamosaurus.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <div id="eagle-object2" class="video-container" style="
+              display: none;
+              position: absolute; 
+              top: 0; left: 0; 
+              width: 100%; height: 100%;">
+              <video width="100%" height="100%" controls autoplay muted loop playsinline preload="metadata" style="max-height: 100%;">
+                <source src="./static/videos_compressed/2_novel/eagle_landing-*-icydragon.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <div id="eagle-object3" class="video-container" style="
+              display: none;
+              position: absolute; 
+              top: 0; left: 0; 
+              width: 100%; height: 100%;">
+              <video width="100%" height="100%" controls autoplay muted loop playsinline preload="metadata" style="max-height: 100%;">
+                <source src="./static/videos_compressed/2_novel/eagle_landing-*-pegasus.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <div id="eagle-object4" class="video-container" style="
+              display: none;
+              position: absolute; 
+              top: 0; left: 0; 
+              width: 100%; height: 100%;">
+              <video width="100%" height="100%" controls autoplay muted loop playsinline preload="metadata" style="max-height: 100%;">
+                <source src="./static/videos_compressed/2_novel/eagle_landing-*-pig.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div> 
+
+          <div id="sandmouse-novel-videos" style="display: none; width:100%; height:100%; position:absolute; top:0; left:0;">
+            <div id="sandmouse-object5" class="video-container" style="
+              display: none;
+              position: absolute; 
+              top: 0; left: 0; 
+              width: 100%; height: 100%;">
+              <video width="100%" height="100%" controls autoplay muted loop playsinline preload="metadata" style="max-height: 100%;">
+                <source src="./static/videos_compressed/2_novel/sandmouse_digin-*-cat.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <div id="sandmouse-object7" class="video-container" style="
+              display: none;
+              position: absolute; 
+              top: 0; left: 0; 
+              width: 100%; height: 100%;">
+              <video width="100%" height="100%" controls autoplay muted loop playsinline preload="metadata" style="max-height: 100%;">
+                <source src="./static/videos_compressed/2_novel/sandmouse_digin-*-dragon.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <div id="sandmouse-object8" class="video-container" style="
+              display: none;
+              position: absolute; 
+              top: 0; left: 0; 
+              width: 100%; height: 100%;">
+              <video width="100%" height="100%" controls autoplay muted loop playsinline preload="metadata" style="max-height: 100%;">
+                <source src="./static/videos_compressed/2_novel/sandmouse_digin-*-tyranno.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <div id="sandmouse-object6" class="video-container" style="
+              display: none;
+              position: absolute; 
+              top: 0; left: 0; 
+              width: 100%; height: 100%;">
+              <video width="100%" height="100%" controls autoplay muted loop playsinline preload="metadata" style="max-height: 100%;">
+                <source src="./static/videos_compressed/2_novel/sandmouse_digin-*-cricket.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+
+            <div id="sandmouse-object1" class="video-container" style="
+              display: none;
+              position: absolute; 
+              top: 0; left: 0; 
+              width: 100%; height: 100%;">
+              <video width="100%" height="100%" controls autoplay muted loop playsinline preload="metadata" style="max-height: 100%;">
+                <source src="./static/videos_compressed/2_novel/sandmouse_digin-*-alamosaurus.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <div id="sandmouse-object2" class="video-container" style="
+              display: none;
+              position: absolute; 
+              top: 0; left: 0; 
+              width: 100%; height: 100%;">
+              <video width="100%" height="100%" controls autoplay muted loop playsinline preload="metadata" style="max-height: 100%;">
+                <source src="./static/videos_compressed/2_novel/sandmouse_digin-*-icydragon.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <div id="sandmouse-object3" class="video-container" style="
+              display: none;
+              position: absolute; 
+              top: 0; left: 0; 
+              width: 100%; height: 100%;">
+              <video width="100%" height="100%" controls autoplay muted loop playsinline preload="metadata" style="max-height: 100%;">
+                <source src="./static/videos_compressed/2_novel/sandmouse_digin-*-pegasus.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <div id="sandmouse-object4" class="video-container" style="
+              display: none;
+              position: absolute; 
+              top: 0; left: 0; 
+              width: 100%; height: 100%;">
+              <video width="100%" height="100%" controls autoplay muted loop playsinline preload="metadata" style="max-height: 100%;">
+                <source src="./static/videos_compressed/2_novel/sandmouse_digin-*-pig.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div> 
+        
+          <div id="leopard-novel-videos" style="display: none; width:100%; height:100%; position:absolute; top:0; left:0;">
+            <div id="leopard-object5" class="video-container" style="
+              display: none;
+              position: absolute; 
+              top: 0; left: 0; 
+              width: 100%; height: 100%;">
+              <video width="100%" height="100%" controls autoplay muted loop playsinline preload="metadata" style="max-height: 100%;">
+                <source src="./static/videos_compressed/2_novel/leopard_pounce-*-cat.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <div id="leopard-object7" class="video-container" style="
+              display: none;
+              position: absolute; 
+              top: 0; left: 0; 
+              width: 100%; height: 100%;">
+              <video width="100%" height="100%" controls autoplay muted loop playsinline preload="metadata" style="max-height: 100%;">
+                <source src="./static/videos_compressed/2_novel/leopard_pounce-*-dragon.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <div id="leopard-object8" class="video-container" style="
+              display: none;
+              position: absolute; 
+              top: 0; left: 0; 
+              width: 100%; height: 100%;">
+              <video width="100%" height="100%" controls autoplay muted loop playsinline preload="metadata" style="max-height: 100%;">
+                <source src="./static/videos_compressed/2_novel/leopard_pounce-*-tyranno.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <div id="leopard-object6" class="video-container" style="
+              display: none;
+              position: absolute; 
+              top: 0; left: 0; 
+              width: 100%; height: 100%;">
+              <video width="100%" height="100%" controls autoplay muted loop playsinline preload="metadata" style="max-height: 100%;">
+                <source src="./static/videos_compressed/2_novel/leopard_pounce-*-cricket.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+
+            <div id="leopard-object1" class="video-container" style="
+              display: none;
+              position: absolute; 
+              top: 0; left: 0; 
+              width: 100%; height: 100%;">
+              <video width="100%" height="100%" controls autoplay muted loop playsinline preload="metadata" style="max-height: 100%;">
+                <source src="./static/videos_compressed/2_novel/leopard_pounce-*-alamosaurus.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <div id="leopard-object2" class="video-container" style="
+              display: none;
+              position: absolute; 
+              top: 0; left: 0; 
+              width: 100%; height: 100%;">
+              <video width="100%" height="100%" controls autoplay muted loop playsinline preload="metadata" style="max-height: 100%;">
+                <source src="./static/videos_compressed/2_novel/leopard_pounce-*-icydragon.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <div id="leopard-object3" class="video-container" style="
+              display: none;
+              position: absolute; 
+              top: 0; left: 0; 
+              width: 100%; height: 100%;">
+              <video width="100%" height="100%" controls autoplay muted loop playsinline preload="metadata" style="max-height: 100%;">
+                <source src="./static/videos_compressed/2_novel/leopard_pounce-*-pegasus.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <div id="leopard-object4" class="video-container" style="
+              display: none;
+              position: absolute; 
+              top: 0; left: 0; 
+              width: 100%; height: 100%;">
+              <video width="100%" height="100%" controls autoplay muted loop playsinline preload="metadata" style="max-height: 100%;">
+                <source src="./static/videos_compressed/2_novel/leopard_pounce-*-pig.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div> 
+        
+        </div> 
+
+        <p id="novel-description" class="mt-2"></p>
+
+        <div style="margin: 1rem 0;"></div>
+        <p class="subtitle is-6 has-text-weight-semibold">Observed During Training:</p>
+        <div class="buttons is-centered">
+          <button id="btn-object7" class="button is-small is-rounded" onclick="toggleNovelObject('object7')">Dragon</button>
+          <button id="btn-object8" class="button is-small is-rounded" onclick="toggleNovelObject('object8')">Tyranno</button>
+          <button id="btn-object5" class="button is-small is-rounded" onclick="toggleNovelObject('object5')">Cat</button>
+          <button id="btn-object6" class="button is-small is-rounded" onclick="toggleNovelObject('object6')">Cricket</button>
+        </div>
+
+        <p class="subtitle is-6 has-text-weight-semibold">Totally Novel:</p>
+        <div class="buttons is-centered">
+          <button id="btn-object4" class="button is-small is-rounded" onclick="toggleNovelObject('object4')">Pig</button>
+          <button id="btn-object1" class="button is-small is-rounded" onclick="toggleNovelObject('object1')">Alamosaurus</button>
+          <button id="btn-object3" class="button is-small is-rounded" onclick="toggleNovelObject('object3')">Pegasus</button>
+          <button id="btn-object2" class="button is-small is-rounded" onclick="toggleNovelObject('object2')">Icy Dragon</button>
+        </div>
+
+      </div> 
+
+    </div> 
+  </div> 
+</section>
+
+<script>
+  let currentScenario = 'ant';
+  let activeOriginalButtonId = null;
+  let activeNovelButtonId = null;
+
+  const scenarioInfo = {
+    ant: {
+      originalDescription: "Ant is knocked back and ends up lying on its back, motionless",
+    },
+    gazelle: {
+      originalDescription: "A gazelle is shot and falls to the ground",
+    },
+    brownbear01: {
+      originalDescription: "A bear stands on all fours, raises its upper body, and smashes with its right paw while roaring",
+    },
+    brownbear02: {
+      originalDescription: "A bear crouches and charges forward to body slam an opponent",
+    },
+    buffalo: {
+      originalDescription: "A buffalo wakes up and gets up from a lying position"
+    },
+    eagle: {
+      originalDescription: "An eagle flaps its wings twice and lands"
+    },
+    leopard: {
+      originalDescription: "A leopard crouches and pounces forward with explosive energy"
+    },
+    sandmouse: {
+      originalDescription: "A sandmouse digs into the ground with its front paws"
+    }
+  };
+
+  const objectInfo = {
+    object5: { name: "Cat" },
+    object7: { name: "Dragon" },
+    object8: { name: "Tyranno" },
+    object6: { name: "Cricket" },
+
+    object1: { name: "Alamosaurus" },
+    object2: { name: "Icy Dragon" },
+    object3: { name: "Pegasus" },
+    object4: { name: "Pig" }
+  };
+
+  function toggleOriginal(scenario) {
+    document.getElementById('original-ant').style.display = 'none';
+    document.getElementById('original-gazelle').style.display = 'none';
+    document.getElementById('original-brownbear01').style.display = 'none';
+    document.getElementById('original-brownbear02').style.display = 'none';
+    document.getElementById('original-buffalo').style.display = 'none';
+    document.getElementById('original-eagle').style.display = 'none';
+    document.getElementById('original-leopard').style.display = 'none';
+    document.getElementById('original-sandmouse').style.display = 'none';
+
+    document.getElementById('original-' + scenario).style.display = 'block';
+
+    document.getElementById('original-description').textContent = scenarioInfo[scenario].originalDescription;
+
+    document.getElementById('ant-novel-videos').style.display = 'none';
+    document.getElementById('gazelle-novel-videos').style.display = 'none';
+    document.getElementById('brownbear01-novel-videos').style.display = 'none';
+    document.getElementById('brownbear02-novel-videos').style.display = 'none';
+    document.getElementById('buffalo-novel-videos').style.display = 'none';
+    document.getElementById('eagle-novel-videos').style.display = 'none';
+    document.getElementById('leopard-novel-videos').style.display = 'none';
+    document.getElementById('sandmouse-novel-videos').style.display = 'none';
+    document.getElementById(scenario + '-novel-videos').style.display = 'block';
+
+    currentScenario = scenario;
+
+    highlightOriginalButton('btn-' + scenario);
+
+    toggleNovelObject('object7');
+  }
+
+  function toggleNovelObject(objectId) {
+    const containers = document.querySelectorAll('#' + currentScenario + '-novel-videos .video-container');
+    containers.forEach(el => el.style.display = 'none');
+
+    const targetId = currentScenario + '-' + objectId;
+    const targetEl = document.getElementById(targetId);
+    if (targetEl) {
+      targetEl.style.display = 'block';
+    }
+
+    const name = objectInfo[objectId].name;
+    const novelText = scenarioInfo[currentScenario].novelDescription
+      ? scenarioInfo[currentScenario].novelDescription.replace("[Animal]", name)
+      : "";
+    document.getElementById('novel-description').textContent = novelText;
+
+    highlightNovelButton('btn-' + objectId);
+  }
+
+  function highlightOriginalButton(buttonId) {
+    if (activeOriginalButtonId) {
+      document.getElementById(activeOriginalButtonId).classList.remove('is-primary');
+    }
+    document.getElementById(buttonId).classList.add('is-primary');
+    activeOriginalButtonId = buttonId;
+  }
+
+  function highlightNovelButton(buttonId) {
+    if (activeNovelButtonId) {
+      document.getElementById(activeNovelButtonId).classList.remove('is-primary');
+    }
+    document.getElementById(buttonId).classList.add('is-primary');
+    activeNovelButtonId = buttonId;
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    toggleOriginal('gazelle');         
+    toggleNovelObject('object7');  
+  });
+</script>
+
+<section class="hero teaser">
+  <div style="margin: 2rem 0;"></div>
+  <div class="container is-max-desktop">
+    
+    <div class="columns is-centered has-text-centered">
+      <h2 class="title is-3">Level of Detail in Description and Variability in Synthesized Motions</h2>
+    </div>
+
+    <div style="margin: 2rem 0;"></div>
+
+    <div class="columns is-centered">
+      <div class="column has-text-centered">
+        <video width="100%" height="100%" controls autoplay muted loop playsinline preload="metadata" style="max-height: 100%;">
+          <source src="./static/videos_compressed/4_description/walking_forward.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
+
+    <div class="columns is-centered">
+      <div class="column is-10 has-text-centered">
+        <div class="box has-background-light" style="max-width: 700px; margin: 0 auto;">
+          <p class="subtitle is-6">
+            This section highlights the impact of varying levels of detail in text descriptions on synthesized motions.
+            More detailed descriptions result in precise, fine-grained motion nuances, whereas abstract descriptions allow for a broader range of possible motion interpretations.
+            By adjusting the granularity of textual input, our model adapts dynamically, generating motions that exhibit both diversity and coherence.
+          </p>
+
+          <div style="margin-top: 1.5rem;"></div>
+
+          <h3 class="title is-5">Captions Used for Motion Synthesis:</h3>
+          <div class="content has-text-left">
+            <ul>
+              <li>Level-1: A T-Rex is <strong>walking forward</strong>.</li>
+              <li>Level-2: A T-Rex walks forward <strong>with its body low</strong> to the ground.</li>
+              <li>Level-3: A T-Rex, <strong>with its head, neck, back, and tail aligned in a straight line</strong>, walks forward. It bends its knees to keep its upper body low to the ground as it moves.</li>
+              <li>Level-4: A T-Rex, maintaining a straight alignment of its head, neck, back, and tail, begins to walk forward. It bends its knees deliberately, allowing its massive upper body to <strong>remain low and balanced as it strides</strong>.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
+<section class="hero teaser" id="long_motion">
+  <div style="margin: 2rem 0;"></div>
+  <div class="container is-max-desktop">
+
+    <div class="columns is-centered has-text-centered">
+      <h2 class="title is-3">Long Motion Generation: Journey of T-Rex</h2>
+    </div>
+    <div style="margin: 1.5rem 0;"></div>
+
+    <div class="columns is-centered">
+      <div class="column has-text-centered">
+        <video width="100%" controls autoplay muted loop playsinline preload="metadata" style="max-height: 400px;">
+          <source src="./static/videos_compressed/5_long/home.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <h3 class="title is-4">Home Camera</h3>
+      </div>
+
+      <div class="column has-text-centered">
+        <video width="100%" controls autoplay muted loop playsinline preload="metadata" style="max-height: 400px;">
+          <source src="./static/videos_compressed/5_long/right.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <h3 class="title is-4">Right Camera</h3>
+      </div>
+    </div>
+
+    <div class="columns is-centered">
+      <div class="column is-10 has-text-centered">
+        <div class="box has-background-light">
+          <p class="subtitle is-6">
+            This demonstration showcases the long motion generation of a T-Rex from multiple perspectives. 
+            Though trained on relatively short sequences (up to <strong>90 frames</strong>), our model extends to 
+            longer motions (more than <strong>800 frames</strong>) by conditioning on sequential descriptions and ensuring smooth transitions between 
+            consecutive motion chunks via an overlapping window with weighted blending during sampling.
+          </p>
+
+          <div style="margin-top: 1.5rem;"></div>
+
+          <h3 class="title is-5">Captions Used for Motion Synthesis:</h3>
+          <div class="content has-text-left">
+            <ul>
+              <li>🦖 A T-Rex wakes up and gets up from a lying position.</li>
+              <li>🦖 A T-Rex turns its head to the right and observes something.</li>
+              <li>🦖 A T-Rex bends down and bites something inside a cave.</li>
+              <li>🦖 A T-Rex walks slowly forward with its body aligned in a straight line.</li>
+              <li>🦖 A T-Rex is sprinting with its head facing forward and body lowered for balance.</li>
+              <li>🦖 A T-Rex dashes forward and bites into something, then chews and swallows it.</li>
+              <li>🦖 A T-Rex steps back slowly while facing forward.</li>
+              <li>🦖 A T-Rex bends its knees, lowers its body, and reacts to being hit on the right side of its face.</li>
+              <li>🦖 A T-Rex with an injured leg walks awkwardly, growling in pain.</li>
+              <li>🦖 A T-Rex is shot and falls to the ground.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
+
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{anonymous2025t2m4vlo,
+  author    = {Anonymous Authors},
+  title     = {How to Move Your Dragon: Text-to-Motion Synthesis For Large Vocabulary Objects},
+  journal   = {ICML Submitted},
+  year      = {2025},
+}</code></pre>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link"
+         href="./static/videos_compressed/nerfies_paper.pdf">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            This means you are free to borrow the <a
+              href="https://github.com/nerfies/nerfies.github.io">source code</a> of this website,
+            we just ask that you link back to this page in the footer.
+            Please remember to remove the analytics code included in the header of the website which
+            you do not want on your website.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
