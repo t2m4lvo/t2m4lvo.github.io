@@ -1,15 +1,18 @@
-# T2M4LVO
+[![arXiv](https://img.shields.io/badge/arXiv-2503.04257-b31b1b.svg)](https://arxiv.org/abs/2503.04257) [![Project Page](https://img.shields.io/badge/Project%20Page-T2M4LVO-blue?logo=github)](https://t2m4lvo.github.io/) [![Hugging Face](https://img.shields.io/badge/Dataset-HuggingFace-yellow.svg?logo=huggingface)](https://huggingface.co/datasets/1Konny/t2m4lvo-truebones-zoo)
 
-This is the repository that contains source code for the paper, How to Mover Your Dragon: Text-to-Motion Synthesis for Large-Vocabulary Objects ([T2M4LVO](https://t2m4lvo.github.io/)).
+# 🐉 🐕🐊🦅🐀🦈 How to Move Your Dragon: Text-to-Motion Synthesis for Large-Vocabulary Objects
+
+This is the repository that contains source code for the paper, How to Move Your Dragon: Text-to-Motion Synthesis for Large-Vocabulary Objects ([T2M4LVO](https://t2m4lvo.github.io/)).
 
 If you find this code useful for your work please cite:
 
 ```
-@article{anonymous2025t2m4vlo,
-  author    = {Anonymous Authors},
-  title     = {How to Move Your Dragon: Text-to-Motion Synthesis for Large Vocabulary Objects},
-  journal   = {under review},
-  year      = {2025},
+@inproceedings{lee2025how,
+title={How to Move Your Dragon: Text-to-Motion Synthesis for Large-Vocabulary Objects},
+author={Wonkwang Lee and Jongwon Jeong and Taehong Moon and Hyeon-Jong Kim and Jaehyeon Kim and Gunhee Kim and Byeong-Uk Lee},
+booktitle={Forty-second International Conference on Machine Learning},
+year={2025},
+url={https://openreview.net/forum?id=o2waQ5S2ty}
 }
 ```
 

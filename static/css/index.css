@@ -146,3 +146,10 @@ body {
 #interpolation-image-wrapper img {
   border-radius: 5px;
 }
+
+.affiliation-block {
+  display: block;
+  line-height: 1.2; /* 줄간격 조절 (1.0~1.2 사이 추천) */
+  font-size: 1.25rem; /* 기존 is-size-5와 유사 */
+  color: #7a7a7a; /* 기존 has-text-grey */
+}
